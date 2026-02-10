@@ -13,55 +13,37 @@
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="hero">
-            <div class="hero-content">
-                <h2>Hello, I'm John Doe</h2>
-                <p>A passionate Web Developer creating engaging and responsive web experiences.</p>
-                <a href="#portfolio" class="button">View My Work</a>
-            </div>
-        </section>
-
         <section id="about">
             <h2>About Me</h2>
-            <p>I'm a full-stack developer with 5+ years of experience in building scalable web applications. My expertise includes JavaScript, React, Node.js, and Python. I love solving complex problems and learning new technologies.</p>
+            <p>I'm a passionate web developer with a focus on front-end technologies...</p>
         </section>
 
-        <section id="portfolio">
-            <h2>My Portfolio</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>A description of project one, highlighting technologies used and its purpose.</p>
-                    <a href="#" target="_blank">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project Two</h3>
-                    <p>A description of project two, highlighting technologies used and its purpose.</p>
-                    <a href="#" target="_blank">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project Three</h3>
-                    <p>A description of project three, highlighting technologies used and its purpose.</p>
-                    <a href="#" target="_blank">View Project</a>
-                </div>
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="project-item">
+                <h3>Project One</h3>
+                <p>A brief description of project one.</p>
+                <a href="#">View Project</a>
             </div>
         </section>
 
         <section id="contact">
             <h2>Contact Me</h2>
-            <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
-            <form id="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+                <button type="submit">Send</button>
             </form>
         </section>
     </main>
@@ -75,12 +57,11 @@
 </html>",
   "css": "body {
     font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     background-color: #f4f4f4;
     color: #333;
-    line-height: 1.6;
 }
 
 header {
@@ -92,160 +73,35 @@ header {
 
 header h1 {
     margin: 0;
-    padding-bottom: 0.5rem;
 }
 
 nav ul {
-    list-style: none;
     padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
+    list-style: none;
 }
 
 nav ul li {
-    margin: 0 15px;
+    display: inline;
+    margin-right: 20px;
 }
 
-nav ul li a {
+nav a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
 }
 
 main {
     padding: 20px;
-    max-width: 1200px;
+    max-width: 960px;
     margin: auto;
 }
 
 section {
-    padding: 40px 0;
-    border-bottom: 1px solid #eee;
-}
-
-section:last-of-type {
-    border-bottom: none;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #007bff;
-}
-
-#hero {
-    background: url('https://via.placeholder.com/1500x500') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 400px;
-    position: relative;
-}
-
-#hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-content h2 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.hero-content p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-}
-
-.button {
-    display: inline-block;
-    background: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.button:hover {
-    background: #0056b3;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.project-card {
     background: #fff;
+    margin-bottom: 20px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.project-card h3 {
-    color: #007bff;
-}
-
-.project-card a {
-    display: inline-block;
-    margin-top: 15px;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.project-card a:hover {
-    text-decoration: underline;
-}
-
-#contact-form {
-    max-width: 600px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-#contact-form input,
-#contact-form textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-#contact-form button {
-    background: #007bff;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: background 0.3s ease;
-}
-
-#contact-form button:hover {
-    background: #0056b3;
 }
 
 footer {
@@ -253,121 +109,78 @@ footer {
     padding: 20px;
     background: #333;
     color: #fff;
-    margin-top: 20px;
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
-    nav ul li {
-        margin: 5px 0;
-    }
-    .hero-content h2 {
-        font-size: 2.5em;
-    }
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }",
   "js": "document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scrolling for navigation links
+    console.log('Portfolio website loaded successfully!');
+
+    // Example: Smooth scrolling for navigation links
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
+
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
         });
     });
 
-    // Simple contact form submission handling
-    const contactForm = document.getElementById('contact-form');
+    // Example: Simple form submission handling (client-side)
+    const contactForm = document.querySelector('#contact form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent actual form submission
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
 
-            // In a real application, you'd send this data to a server
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const message = this.querySelector('textarea').value;
-
-            console.log('Form Submitted!', { name, email, message });
-            alert('Thank you for your message, ' + name + '! I will get back to you soon.');
-
-            // Clear the form
-            this.reset();
-        });
-    }
-
-    // Optional: Add a subtle animation on scroll
-    const sections = document.querySelectorAll('section');
-    const options = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
+            if (name && email && message) {
+                alert(`Thank you, ${name}! Your message has been sent.`);
+                // In a real application, you'd send this data to a server
+                console.log({ name, email, message });
+                this.reset();
             } else {
-                // You might want to reset for re-animation if scrolling back up
-                // entry.target.style.opacity = 0;
-                // entry.target.style.transform = 'translateY(20px)';
+                alert('Please fill in all fields.');
             }
         });
-    }, options);
-
-    sections.forEach(section => {
-        section.style.opacity = 0;
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        observer.observe(section);
-    });
+    }
 });",
-  "readme": "# My Portfolio Website
+  "readme": "# Portfolio Website
 
-This repository contains the code for my personal portfolio website. It showcases my skills, projects, and provides a way for potential employers or collaborators to contact me.
+This is a simple portfolio website designed to showcase my skills and projects as a web developer.
 
 ## Features
 
-- **Responsive Design**: Adapts to various screen sizes (desktop, tablet, mobile).
-- **Smooth Scrolling**: Enhanced navigation experience.
-- **Project Showcase**: Dedicated section to highlight key projects.
-- **Contact Form**: Easy way to get in touch.
+- **Responsive Design**: Adapts to various screen sizes.
+- **Navigation**: Smooth scrolling between sections.
+- **Project Showcase**: Dedicated section to highlight past work.
+- **Contact Form**: A form for visitors to get in touch.
 
 ## Technologies Used
 
-- **HTML5**: For structuring the content.
-- **CSS3**: For styling and layout (including responsive design with media queries).
-- **JavaScript (ES6+)**: For interactive elements and form handling.
+- HTML5
+- CSS3
+- JavaScript (ES6+)
 
 ## Setup and Usage
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/your-portfolio.git
-   ```
-2. **Navigate to the project directory:**
-   ```bash
-   cd your-portfolio
-   ```
-3. **Open `index.html` in your browser:**
-   Simply double-click the `index.html` file, or open it via a local development server.
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/portfolio.git
+    cd portfolio
+    ```
+2.  **Open `index.html`:**
+    Simply open the `index.html` file in your web browser to view the website.
 
 ## Customization
 
-- **Content**: Update `index.html` with your personal information, projects, and contact details.
-- **Styling**: Modify `style.css` to match your preferred aesthetic and branding.
-- **JavaScript**: Extend `script.js` for additional interactivity or features.
-- **Images**: Replace placeholder images (e.g., hero background) with your own.
+-   **Content**: Edit `index.html` to update your personal information, projects, and contact details.
+-   **Styling**: Modify `style.css` to change the look and feel of the website.
+-   **Interactivity**: Update `script.js` for custom JavaScript functionalities.
 
-## Contact
+## License
 
-Feel free to reach out to me via:
-- **Email**: your.email@example.com
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/yourusername)
-- **GitHub**: [Your GitHub Profile](https://github.com/yourusername)
-
----
-
-&copy; 2023 John Doe. All rights reserved."
+This project is open source and available under the [MIT License](LICENSE)."
 }
