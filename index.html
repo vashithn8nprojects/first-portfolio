@@ -10,48 +10,42 @@
 <body>
     <header>
         <h1>John Doe</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <p>Web Developer</p>
     </header>
-
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
     <main>
         <section id="about">
             <h2>About Me</h2>
-            <p>I'm a passionate web developer with a focus on front-end technologies...</p>
+            <p>I am a passionate web developer with experience in HTML, CSS, JavaScript, and various front-end frameworks. I love building responsive and user-friendly web applications.</p>
         </section>
-
         <section id="projects">
             <h2>My Projects</h2>
-            <div class="project-item">
+            <div class="project-card">
                 <h3>Project One</h3>
-                <p>A brief description of project one.</p>
+                <p>A description of project one.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Project Two</h3>
+                <p>A description of project two.</p>
                 <a href="#">View Project</a>
             </div>
         </section>
-
         <section id="contact">
             <h2>Contact Me</h2>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message"></textarea>
-                <button type="submit">Send</button>
-            </form>
+            <p>Email: <a href="mailto:john.doe@example.com">john.doe@example.com</a></p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/johndoe">linkedin.com/in/johndoe</a></p>
         </section>
     </main>
-
     <footer>
         <p>&copy; 2023 John Doe. All rights reserved.</p>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>",
@@ -60,7 +54,7 @@
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: #f4f4f4;
     color: #333;
 }
 
@@ -78,6 +72,8 @@ header h1 {
 nav ul {
     padding: 0;
     list-style: none;
+    text-align: center;
+    background: #666;
 }
 
 nav ul li {
@@ -85,9 +81,15 @@ nav ul li {
     margin-right: 20px;
 }
 
-nav a {
+nav ul li a {
     color: #fff;
     text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background: #555;
 }
 
 main {
@@ -104,6 +106,13 @@ section {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+.project-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
 footer {
     text-align: center;
     padding: 20px;
@@ -114,73 +123,78 @@ footer {
     width: 100%;
 }",
   "js": "document.addEventListener('DOMContentLoaded', () => {
-    console.log('Portfolio website loaded successfully!');
+    console.log('Portfolio page loaded!');
 
-    // Example: Smooth scrolling for navigation links
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetId = event.target.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 60, // Adjust for fixed header if any
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
-    // Example: Simple form submission handling (client-side)
-    const contactForm = document.querySelector('#contact form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            if (name && email && message) {
-                alert(`Thank you, ${name}! Your message has been sent.`);
-                // In a real application, you'd send this data to a server
-                console.log({ name, email, message });
-                this.reset();
-            } else {
-                alert('Please fill in all fields.');
-            }
+    // Add a simple project hover effect
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'scale(1.02)';
+            card.style.transition = 'transform 0.3s ease-in-out';
         });
-    }
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'scale(1)';
+        });
+    });
 });",
-  "readme": "# Portfolio Website
+  "readme": "# My Personal Portfolio
 
-This is a simple portfolio website designed to showcase my skills and projects as a web developer.
-
-## Features
-
-- **Responsive Design**: Adapts to various screen sizes.
-- **Navigation**: Smooth scrolling between sections.
-- **Project Showcase**: Dedicated section to highlight past work.
-- **Contact Form**: A form for visitors to get in touch.
+This repository contains the source code for my personal portfolio website, showcasing my skills, projects, and contact information.
 
 ## Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript (ES6+)
+*   HTML5
+*   CSS3
+*   JavaScript
 
-## Setup and Usage
+## Features
+
+*   Responsive Design
+*   Smooth scrolling navigation
+*   Project showcase
+*   Contact information
+
+## How to Run Locally
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/portfolio.git
+    git clone https://github.com/yourusername/portfolio.git
+    ```
+2.  **Navigate to the project directory:**
+    ```bash
     cd portfolio
     ```
-2.  **Open `index.html`:**
-    Simply open the `index.html` file in your web browser to view the website.
+3.  **Open `index.html` in your browser.**
 
-## Customization
+## Project Structure
 
--   **Content**: Edit `index.html` to update your personal information, projects, and contact details.
--   **Styling**: Modify `style.css` to change the look and feel of the website.
--   **Interactivity**: Update `script.js` for custom JavaScript functionalities.
+```
+.
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+```
 
-## License
+## Contact
 
-This project is open source and available under the [MIT License](LICENSE)."
+Feel free to reach out via email: [john.doe@example.com](mailto:john.doe@example.com)
+
+---
+© 2023 John Doe"
 }
