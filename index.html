@@ -1,1 +1,140 @@
+{"html": "<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+    </header>
+    <main>
+        <section class="intro">
+            <p>Hello! I'm a passionate developer showcasing my projects here.</p>
+        </section>
+        <section class="projects">
+            <h2>My Projects</h2>
+            <div class="project-item">
+                <h3>Project One</h3>
+                <p>A brief description of project one.</p>
+            </div>
+            <div class="project-item">
+                <h3>Project Two</h3>
+                <p>A brief description of project two.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 My Portfolio</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>", "css": "body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+main {
+    padding: 20px;
+    max-width: 960px;
+    margin: auto;
+}
+
+.intro p {
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.project-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}", "js": "document.addEventListener('DOMContentLoaded', () => {
+    console.log('Portfolio page loaded!');
+
+    // Example of a simple interaction
+    const projectItems = document.querySelectorAll('.project-item');
+    projectItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            alert(`You clicked on Project ${index + 1}`);
+        });
+    });
+});", "readme": "# My Portfolio
+
+Welcome to my personal portfolio! This repository showcases a collection of my projects, skills, and experiences.
+
+## Table of Contents
+
+- [About Me](#about-me)
+- [Projects](#projects)
+- [Skills](#skills)
+- [Contact](#contact)
+
+## About Me
+
+I am a [Your Profession/Role] with a passion for [Your Interests/Technologies]. I enjoy building [Types of Projects] and constantly learning new technologies.
+
+## Projects
+
+### Project One
+- **Description:** A brief overview of Project One.
+- **Technologies Used:** [Tech 1], [Tech 2], [Tech 3]
+- **Live Demo:** [Link to live demo] (if available)
+- **Repository:** [Link to project repository]
+
+### Project Two
+- **Description:** A brief overview of Project Two.
+- **Technologies Used:** [Tech 1], [Tech 2], [Tech 3]
+- **Live Demo:** [Link to live demo] (if available)
+- **Repository:** [Link to project repository]
+
+## Skills
+
+- **Languages:** JavaScript, Python, HTML, CSS
+- **Frameworks/Libraries:** React, Node.js, Express, Django, Flask
+- **Databases:** PostgreSQL, MongoDB, MySQL
+- **Tools & Platforms:** Git, Docker, AWS, Heroku
+
+## Contact
+
+Feel free to reach out to me!
+
+- **Email:** [your.email@example.com]
+- **LinkedIn:** [Your LinkedIn Profile]
+- **GitHub:** [Your GitHub Profile]
+- **Website:** [Your Personal Website] (if any)"}
