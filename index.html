@@ -10,56 +10,61 @@
 <body>
     <header>
         <h1>John Doe</h1>
-        <p>Web Developer</p>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+
     <main>
         <section id="about">
             <h2>About Me</h2>
-            <p>I am a passionate web developer with experience in HTML, CSS, JavaScript, and various front-end frameworks. I love building responsive and user-friendly web applications.</p>
+            <p>I am a passionate web developer with experience in front-end technologies...</p>
         </section>
+
         <section id="projects">
             <h2>My Projects</h2>
-            <div class="project-card">
-                <h3>Project One</h3>
-                <p>A description of project one.</p>
-                <a href="#">View Project</a>
-            </div>
-            <div class="project-card">
-                <h3>Project Two</h3>
-                <p>A description of project two.</p>
-                <a href="#">View Project</a>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Project One</h3>
+                    <p>A description of project one.</p>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Project Two</h3>
+                    <p>A description of project two.</p>
+                    <a href="#">View Project</a>
+                </div>
             </div>
         </section>
+
         <section id="contact">
             <h2>Contact Me</h2>
-            <p>Email: <a href="mailto:john.doe@example.com">john.doe@example.com</a></p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/johndoe">linkedin.com/in/johndoe</a></p>
+            <p>Feel free to reach out via email: <a href="mailto:john.doe@example.com">john.doe@example.com</a></p>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2023 John Doe. All rights reserved.</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>",
   "css": "body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
     color: #333;
 }
 
 header {
-    background: #333;
+    background-color: #333;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
@@ -70,131 +75,145 @@ header h1 {
 }
 
 nav ul {
-    padding: 0;
     list-style: none;
-    text-align: center;
-    background: #666;
+    padding: 0;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin: 0 15px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    padding: 10px 15px;
-    display: inline-block;
-}
-
-nav ul li a:hover {
-    background: #555;
 }
 
 main {
     padding: 20px;
     max-width: 960px;
-    margin: auto;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 section {
-    background: #fff;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .project-card {
     border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 15px;
+    padding: 20px;
+    text-align: center;
     border-radius: 5px;
 }
 
 footer {
     text-align: center;
     padding: 20px;
-    background: #333;
+    background-color: #333;
     color: #fff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
 }",
   "js": "document.addEventListener('DOMContentLoaded', () => {
-    console.log('Portfolio page loaded!');
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-    const navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const targetId = event.target.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 60, // Adjust for fixed header if any
-                    behavior: 'smooth'
-                });
-            }
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
 
-    // Add a simple project hover effect
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'scale(1.02)';
-            card.style.transition = 'transform 0.3s ease-in-out';
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'scale(1)';
+    // Optional: Add a simple interactive element, e.g., a "scroll to top" button
+    const scrollToTopBtn = document.createElement('button');
+    scrollToTopBtn.textContent = '↑';
+    scrollToTopBtn.style.position = 'fixed';
+    scrollToTopBtn.style.bottom = '20px';
+    scrollToTopBtn.style.right = '20px';
+    scrollToTopBtn.style.padding = '10px 15px';
+    scrollToTopBtn.style.backgroundColor = '#333';
+    scrollToTopBtn.style.color = '#fff';
+    scrollToTopBtn.style.border = 'none';
+    scrollToTopBtn.style.borderRadius = '5px';
+    scrollToTopBtn.style.cursor = 'pointer';
+    scrollToTopBtn.style.display = 'none'; // Hidden by default
+    document.body.appendChild(scrollToTopBtn);
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) { // Show button after scrolling down 300px
+            scrollToTopBtn.style.display = 'block';
+        } else {
+            scrollToTopBtn.style.display = 'none';
+        }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
     });
 });",
-  "readme": "# My Personal Portfolio
+  "readme": "# My Portfolio Website
 
-This repository contains the source code for my personal portfolio website, showcasing my skills, projects, and contact information.
+This repository contains the source code for my personal portfolio website, showcasing my skills and projects.
 
-## Technologies Used
+## Table of Contents
 
-*   HTML5
-*   CSS3
-*   JavaScript
+- [About](#about)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup and Installation](#setup-and-installation)
+- [Contact](#contact)
+
+## About
+
+This website serves as an online resume and portfolio to display my work as a web developer. It includes sections about me, my projects, and how to contact me.
 
 ## Features
 
-*   Responsive Design
-*   Smooth scrolling navigation
-*   Project showcase
-*   Contact information
+- Responsive design
+- Smooth scrolling navigation
+- Project showcase with descriptions
+- Contact information
 
-## How to Run Locally
+## Technologies Used
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/yourusername/portfolio.git
-    ```
-2.  **Navigate to the project directory:**
-    ```bash
-    cd portfolio
-    ```
-3.  **Open `index.html` in your browser.**
+- HTML5
+- CSS3
+- JavaScript
 
-## Project Structure
+## Setup and Installation
 
-```
-.
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-```
+To get a local copy up and running, follow these simple steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/my-portfolio.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd my-portfolio
+   ```
+3. Open `index.html` in your web browser.
 
 ## Contact
 
-Feel free to reach out via email: [john.doe@example.com](mailto:john.doe@example.com)
+Feel free to reach out to me:
+
+- **Email**: john.doe@example.com
+- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/yourusername/)
+- **GitHub**: [Your GitHub Profile](https://github.com/yourusername)
 
 ---
-© 2023 John Doe"
+
+&copy; 2023 John Doe"
 }
