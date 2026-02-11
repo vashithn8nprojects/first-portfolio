@@ -1,5 +1,4 @@
-{
-  "html": "<!DOCTYPE html>
+{"html": "<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,73 +9,79 @@
 <body>
     <header>
         <h1>John Doe</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <p>Web Developer</p>
     </header>
-
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
     <main>
         <section id="about">
             <h2>About Me</h2>
-            <p>I am a passionate web developer with experience in front-end technologies...</p>
+            <p>I am a passionate web developer with experience in front-end technologies like HTML, CSS, and JavaScript. I love creating responsive and user-friendly websites.</p>
         </section>
-
         <section id="projects">
             <h2>My Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>A description of project one.</p>
-                    <a href="#">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project Two</h3>
-                    <p>A description of project two.</p>
-                    <a href="#">View Project</a>
-                </div>
+            <div class="project-card">
+                <h3>Project One</h3>
+                <p>A description of project one, highlighting key features and technologies used.</p>
+                <a href="#" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Project Two</h3>
+                <p>A description of project two, highlighting key features and technologies used.</p>
+                <a href="#" target="_blank">View Project</a>
             </div>
         </section>
-
         <section id="contact">
             <h2>Contact Me</h2>
             <p>Feel free to reach out via email: <a href="mailto:john.doe@example.com">john.doe@example.com</a></p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+                <button type="submit">Send</button>
+            </form>
         </section>
     </main>
-
     <footer>
         <p>&copy; 2023 John Doe. All rights reserved.</p>
     </footer>
-
     <script src="script.js"></script>
 </body>
-</html>",
-  "css": "body {
+</html>", "css": "body {
     font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    background-color: #f4f4f4;
+    background: #f4f4f4;
     color: #333;
 }
 
 header {
-    background-color: #333;
+    background: #333;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
 }
 
-header h1 {
-    margin: 0;
+nav {
+    background: #666;
+    color: #fff;
+    padding: 0.5rem 0;
+    text-align: center;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -92,37 +97,61 @@ nav ul li a {
 main {
     padding: 20px;
     max-width: 960px;
-    margin: 20px auto;
-    background-color: #fff;
+    margin: auto;
+    background: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 section {
-    margin-bottom: 40px;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
 }
 
 .project-card {
     border: 1px solid #ddd;
-    padding: 20px;
-    text-align: center;
-    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    background: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #333;
+    background: #333;
     color: #fff;
-}",
-  "js": "document.addEventListener('DOMContentLoaded', () => {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}", "js": "document.addEventListener('DOMContentLoaded', () => {
+    console.log('Portfolio loaded successfully!');
+
     // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a').forEach(anchor => {
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
 
@@ -132,58 +161,26 @@ footer {
         });
     });
 
-    // Optional: Add a simple interactive element, e.g., a "scroll to top" button
-    const scrollToTopBtn = document.createElement('button');
-    scrollToTopBtn.textContent = '↑';
-    scrollToTopBtn.style.position = 'fixed';
-    scrollToTopBtn.style.bottom = '20px';
-    scrollToTopBtn.style.right = '20px';
-    scrollToTopBtn.style.padding = '10px 15px';
-    scrollToTopBtn.style.backgroundColor = '#333';
-    scrollToTopBtn.style.color = '#fff';
-    scrollToTopBtn.style.border = 'none';
-    scrollToTopBtn.style.borderRadius = '5px';
-    scrollToTopBtn.style.cursor = 'pointer';
-    scrollToTopBtn.style.display = 'none'; // Hidden by default
-    document.body.appendChild(scrollToTopBtn);
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) { // Show button after scrolling down 300px
-            scrollToTopBtn.style.display = 'block';
-        } else {
-            scrollToTopBtn.style.display = 'none';
-        }
-    });
-
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    // Basic form submission handler
+    const contactForm = document.querySelector('#contact form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! (Form submission is not fully implemented yet)');
+            // In a real application, you would send this data to a server
+            this.reset();
         });
-    });
-});",
-  "readme": "# My Portfolio Website
+    }
+});", "readme": "# Portfolio
 
-This repository contains the source code for my personal portfolio website, showcasing my skills and projects.
-
-## Table of Contents
-
-- [About](#about)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Setup and Installation](#setup-and-installation)
-- [Contact](#contact)
-
-## About
-
-This website serves as an online resume and portfolio to display my work as a web developer. It includes sections about me, my projects, and how to contact me.
+This is a basic portfolio website template showcasing my skills and projects.
 
 ## Features
 
-- Responsive design
-- Smooth scrolling navigation
-- Project showcase with descriptions
-- Contact information
+- **Responsive Design**: Adapts to different screen sizes.
+- **Navigation**: Smooth scrolling navigation to different sections.
+- **Projects Section**: Display your projects with descriptions and links.
+- **Contact Form**: A simple form to get in touch (client-side only for now).
 
 ## Technologies Used
 
@@ -191,29 +188,16 @@ This website serves as an online resume and portfolio to display my work as a we
 - CSS3
 - JavaScript
 
-## Setup and Installation
+## How to Use
 
-To get a local copy up and running, follow these simple steps:
+1. Clone this repository: `git clone [repository-url]`
+2. Open `index.html` in your web browser.
+3. Customize the content in `index.html`, `style.css`, and `script.js` to reflect your own portfolio details.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/my-portfolio.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd my-portfolio
-   ```
-3. Open `index.html` in your web browser.
+## Future Enhancements
 
-## Contact
-
-Feel free to reach out to me:
-
-- **Email**: john.doe@example.com
-- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/yourusername/)
-- **GitHub**: [Your GitHub Profile](https://github.com/yourusername)
-
----
-
-&copy; 2023 John Doe"
-}
+- Add more projects dynamically.
+- Implement a backend for the contact form.
+- Include animations and transitions for a more dynamic UI.
+- Add a dedicated blog or articles section.
+"}
